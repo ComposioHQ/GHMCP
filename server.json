@@ -1,12 +1,12 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.composio/composio",
+  "name": "io.github.composiohq/composio",
   "title": "Composio",
   "description": "Connect agents to 250+ apps with managed auth and tool-calling (Gmail, Slack, GitHub, Linear).",
   "version": "1.0.0",
   "websiteUrl": "https://composio.dev",
   "repository": {
-    "url": "https://github.com/composio/composio-mcp-registry",
+    "url": "https://github.com/ComposioHQ/GHMCP",
     "source": "github"
   },
   "remotes": [
