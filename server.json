@@ -12,25 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://backend.composio.dev/v3/mcp/{server_id}?user_id={user_id}",
-      "variables": {
-        "server_id": {
-          "description": "Your Composio MCP server ID. Create one at https://composio.dev (Dashboard → MCP) or via the Composio API.",
-          "isRequired": true
-        },
-        "user_id": {
-          "description": "An identifier for the end user. The generated MCP URL is scoped to this user.",
-          "isRequired": true
-        }
-      },
-      "headers": [
-        {
-          "name": "x-api-key",
-          "description": "Your Composio API key. Required when require_mcp_api_key is enabled (default for new orgs).",
-          "isRequired": true,
-          "isSecret": true
-        }
-      ]
+      "url": "https://connect.composio.dev/mcp"
     }
   ]
 }
