@@ -8,7 +8,7 @@ Composio already runs MCP. This repo is just the **packaging + listing** that ma
 
 ## ✅ Status: ready to publish
 
-- The repo already lives under the **`ComposioHQ`** GitHub org, so it can publish under the official `io.github.composiohq/composio` name.
+- The repo already lives under the **`ComposioHQ`** GitHub org, so it can publish under the official `io.github.ComposioHQ/composio` name.
 - The listing points at Composio's **single canonical, zero-config MCP endpoint**: `https://connect.composio.dev/mcp`.
 - Auth is **OAuth** — verified live against the endpoint (it returns the standard MCP OAuth challenge and a valid discovery document). Users just click "install" and log in; **no API keys, no IDs to paste**.
 
@@ -43,12 +43,12 @@ This is the best-case registry experience: one URL, click-to-install, OAuth logi
 
 ### Step 1 — Confirm the listing (product owner)
 Open `server.json` and confirm:
-- `name`: `io.github.composiohq/composio` (must match the **ComposioHQ** org — this is what OIDC authorizes)
+- `name`: `io.github.ComposioHQ/composio` (must match the **ComposioHQ** org — this is what OIDC authorizes)
 - `url`: `https://connect.composio.dev/mcp`
 - `title` / `description` read the way marketing wants.
 
 ### Step 2 — (already done) Repo is in the Composio org
-This repo is at `github.com/ComposioHQ/GHMCP`. That org membership is what proves ownership of the `io.github.composiohq` namespace — no personal logins, secrets, or tokens needed. The included workflow uses **GitHub OIDC**.
+This repo is at `github.com/ComposioHQ/GHMCP`. That org membership is what proves ownership of the `io.github.ComposioHQ` namespace — no personal logins, secrets, or tokens needed. The included workflow uses **GitHub OIDC**. (Note: the namespace is **case-sensitive** — it must match the org's exact casing, `ComposioHQ`.)
 
 ### Step 3 — Publish (anyone with push access)
 ```bash
@@ -60,13 +60,13 @@ Pushing a `v*` tag triggers `.github/workflows/publish-mcp.yml`, which authentic
 ### Step 4 — Verify
 1. Confirm the official server is live:
    ```bash
-   curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.composiohq/composio"
+   curl "https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.ComposioHQ/composio"
    ```
 2. Give it a beat, then confirm it appears in the **GitHub MCP Registry**: https://github.com/mcp
 3. Install it in a real MCP client (Claude / Copilot / Cursor) and run **one real tool call** — the OAuth login → connect an app → execute. *Trust the tool call, not just the listing.*
 
 ### Step 5 (optional) — Apply for featured placement (BD)
-Marquee registry slots (Stripe/Notion-tier) are hand-curated by GitHub. Once the official listing is live, email **partnerships@github.com** referencing `io.github.composiohq/composio` to request inclusion/featuring. Arriving with a live, installable server beats pitching an idea.
+Marquee registry slots (Stripe/Notion-tier) are hand-curated by GitHub. Once the official listing is live, email **partnerships@github.com** referencing `io.github.ComposioHQ/composio` to request inclusion/featuring. Arriving with a live, installable server beats pitching an idea.
 
 ---
 
