@@ -1,7 +1,8 @@
 {
-  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.json",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.composio/composio",
-  "description": "Connect agents to 250+ apps with managed auth and tool-calling. Search a toolkit, authenticate once, and give any MCP host the hands to act in Gmail, Slack, GitHub, Linear, and more.",
+  "title": "Composio",
+  "description": "Connect agents to 250+ apps with managed auth and tool-calling (Gmail, Slack, GitHub, Linear).",
   "version": "1.0.0",
   "websiteUrl": "https://composio.dev",
   "repository": {
@@ -11,7 +12,25 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://TODO-REPLACE-WITH-CANONICAL-COMPOSIO-MCP-ENDPOINT"
+      "url": "https://backend.composio.dev/v3/mcp/{server_id}?user_id={user_id}",
+      "variables": {
+        "server_id": {
+          "description": "Your Composio MCP server ID. Create one at https://composio.dev (Dashboard → MCP) or via the Composio API.",
+          "isRequired": true
+        },
+        "user_id": {
+          "description": "An identifier for the end user. The generated MCP URL is scoped to this user.",
+          "isRequired": true
+        }
+      },
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "Your Composio API key. Required when require_mcp_api_key is enabled (default for new orgs).",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
     }
   ]
 }
