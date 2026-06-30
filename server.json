@@ -2,9 +2,21 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ComposioHQ/composio",
   "title": "Composio",
-  "description": "Connect agents to 1000+ apps with managed auth and tool-calling (Gmail, Slack, GitHub, Linear).",
-  "version": "1.0.0",
+  "description": "Connect AI agents to 1000+ apps with managed authentication and tool-calling.",
+  "version": "1.0.5",
   "websiteUrl": "https://composio.dev",
+  "icons": [
+    {
+      "src": "https://brand.composio.dev/logos/Logomark-Black.svg",
+      "mimeType": "image/svg+xml",
+      "theme": "light"
+    },
+    {
+      "src": "https://brand.composio.dev/logos/Logomark-White.svg",
+      "mimeType": "image/svg+xml",
+      "theme": "dark"
+    }
+  ],
   "repository": {
     "url": "https://github.com/ComposioHQ/GHMCP",
     "source": "github"
