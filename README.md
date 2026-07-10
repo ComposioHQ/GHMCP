@@ -13,7 +13,7 @@ https://connect.composio.dev/mcp
 **VS Code**
 
 ```bash
-code --add-mcp "{\"name\":\"composio\",\"type\":\"http\",\"url\":\"https://connect.composio.dev/mcp\"}"
+code --add-mcp '{"name":"composio","type":"http","url":"https://connect.composio.dev/mcp"}'
 ```
 
 **Any other MCP client**: point it at the remote server `https://connect.composio.dev/mcp`.
