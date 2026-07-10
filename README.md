@@ -1,35 +1,75 @@
 # Composio — MCP Server
 
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Composio-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=composio&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fconnect.composio.dev%2Fmcp%22%7D)
-[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Composio-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=composio&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fconnect.composio.dev%2Fmcp%22%7D)
-
 [Composio](https://composio.dev) connects AI agents to **1000+ apps** — Gmail, Slack, GitHub, Linear, and more — with managed authentication and tool-calling.
 
-This is Composio's official remote **MCP server**. It's listed in the [official MCP Registry](https://modelcontextprotocol.io/registry), which syndicates to the [GitHub MCP Registry](https://github.com/mcp), so any MCP-compatible client — Claude, GitHub Copilot, Cursor, and others — can discover and install it in a click.
+This is Composio's official remote **MCP server**, listed in the [official MCP Registry](https://modelcontextprotocol.io/registry) and the [GitHub MCP Registry](https://github.com/mcp/ComposioHQ/composio).
 
----
+## The endpoint
 
-## Install
-
-### Option 1 — One click (VS Code)
-
-Click a badge at the top of this page. VS Code opens and adds the Composio server for you. Use the **Insiders** badge if you run VS Code Insiders.
-
-### Option 2 — Any MCP client
-
-Point your client at the remote endpoint:
+Every setup below points one MCP client at this single remote URL:
 
 ```
 https://connect.composio.dev/mcp
 ```
 
-- **Zero config.** Connecting opens an OAuth login (`login.composio.dev`) — no API keys or IDs to paste.
-- **Remote + streamable HTTP.** Nothing to install or run locally.
+- **Remote + streamable HTTP** — nothing to install or run locally.
+- **Zero-config auth** — the first connection opens an OAuth login (`login.composio.dev`); no API keys or IDs to paste.
 
-### Find it in the registry
+## Add it manually
 
-- **GitHub MCP Registry:** <https://github.com/mcp/ComposioHQ/composio>
-- **Official MCP Registry:** [`io.github.ComposioHQ/composio`](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.ComposioHQ/composio)
+No install button required — register the endpoint by hand in any MCP client.
+
+### VS Code
+
+From the terminal:
+
+```bash
+code --add-mcp "{\"name\":\"composio\",\"type\":\"http\",\"url\":\"https://connect.composio.dev/mcp\"}"
+```
+
+Or edit `mcp.json` (Command Palette → **MCP: Open User Configuration**, or `.vscode/mcp.json` for a single workspace):
+
+```json
+{
+  "servers": {
+    "composio": {
+      "type": "http",
+      "url": "https://connect.composio.dev/mcp"
+    }
+  }
+}
+```
+
+### Claude Code
+
+```bash
+claude mcp add --transport http composio https://connect.composio.dev/mcp
+```
+
+### Cursor
+
+Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (per project):
+
+```json
+{
+  "mcpServers": {
+    "composio": {
+      "url": "https://connect.composio.dev/mcp"
+    }
+  }
+}
+```
+
+### Any other MCP client
+
+Register a **remote / streamable-HTTP** server pointing at `https://connect.composio.dev/mcp`, then complete the OAuth login in the browser on first use.
+
+## Verify the connection
+
+Once added, your client lists Composio's tools:
+
+- **VS Code** — run **MCP: List Servers**, or open `mcp.json` and click the inline **Start**.
+- **Claude Code** — run `claude mcp list` and look for `composio`.
 
 ---
 
